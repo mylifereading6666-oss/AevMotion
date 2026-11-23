@@ -1,42 +1,67 @@
 # AevMotion
 
-**AevMotion** is a mobile-friendly, browser-based video-to-GIF editor by Aev0rnJP.
+**AevMotion** は、Aev0rnJPが開発する、スマートフォンにも対応したブラウザー上で動作する動画GIF変換ツールです。
 
-## Features
-- Import a video file or a saved screen recording from your device.
-- Select the start and end time using sliders or numeric inputs.
-- Adjust FPS, output width, playback speed, palette size and looping.
-- Preview and save the resulting GIF.
-- Video conversion runs locally in the browser with FFmpeg.wasm. Video files are not uploaded to an AevMotion server.
+動画ファイルや端末に保存した画面録画を読み込み、必要な部分を切り出してGIF画像に変換できます。
 
-## Web deployment
-1. Open **Settings → Pages** in this repository.
-2. Set **Build and deployment → Source** to **GitHub Actions**.
-3. The Pages workflow deploys the static app on pushes to `main`.
-4. Open the Pages URL shown in the repository settings.
+## 主な機能
 
-## Android APK
+- 端末内の動画ファイルや保存済みの画面録画を読み込み
+- スライダーまたは数値入力による開始位置・終了位置の指定
+- FPS（フレームレート）、出力幅、再生速度、色数、ループ設定の調整
+- 変換結果のプレビューと保存
+- 画像の一括高解像度化（最大5枚、順番に処理）
+- 高解像度化した画像の個別プレビュー・新しいタブでの表示・ダウンロード
 
-[**Download the latest AevMotion APK**](https://github.com/mylifereading6666-oss/AevMotion/releases/latest/download/app-debug.apk)
+## GIF変換の仕組み
 
-The download link above and the download button on the web app start downloading the APK directly from the latest GitHub Release. The first APK is published after the Android workflow is run once; later version-tag builds publish updated APKs to Releases.
+GIFへの変換には **FFmpeg.wasm** を使用しています。動画の変換処理はブラウザー内で行われ、選択した動画がAevMotionのサーバーへアップロードされることはありません。
 
-1. Open the **Actions** tab.
-2. Select **Build Android APK**.
-3. Choose **Run workflow** and wait for the build to finish.
-4. Open the completed run and download **AevMotion-Android-APK** from Artifacts.
+## Web版の公開方法
 
-To attach an APK to a GitHub Release, create and push a version tag such as `v1.0.0`. The workflow builds the APK and attaches it to that release.
+1. GitHubリポジトリを開き、**Settings → Pages** に進みます。
+2. **Build and deployment → Source** を **GitHub Actions** に設定します。
+3. `main` ブランチへのプッシュをきっかけに、Pages用のワークフローがWeb版を公開します。
+4. リポジトリのPages設定に表示されるURLからアクセスできます。
 
-The generated APK is debug-signed for direct installation/testing. It is not a Google Play production-signed package.
+## Android版（APK）
 
-## Performance and privacy notes
-- The FFmpeg WebAssembly engine is fetched from jsDelivr the first time it is needed. An internet connection is required to load the app's conversion engine.
-- Video processing happens on the device; the selected video is not sent to an AevMotion backend.
-- Large videos, long selections, high FPS and large dimensions use more memory and processing time. For mobile devices, start with a short clip, 15 FPS and 480 px.
-- Screen recordings are imported as saved video files through the device file picker; AevMotion does not record the screen.
-- Browser and Android WebView memory limits vary by device. If conversion fails, try a shorter segment or smaller output size.
-- Respect copyright and platform terms when using source videos.
+<text-placeholder />
 
-## Technology
-HTML, CSS, JavaScript, FFmpeg.wasm, Capacitor, GitHub Pages and GitHub Actions.
+[**AevMotion 最新版APKをダウンロード**](https://github.com/mylifereading6666-oss/AevMotion/releases/latest/download/app-debug.apk)
+
+Webサイト内のAPKダウンロードボタン、または上記リンクを押すと、最新のGitHub ReleaseからAPKを直接ダウンロードできます。最初のAPKは、Android用ワークフローを正常に1回実行して公開された後にダウンロード可能になります。
+
+### APKの生成・公開手順
+
+1. GitHubリポジトリの **Actions** タブを開きます。
+2. **Build Android APK** を選択します。
+3. **Run workflow** を押してワークフローを実行します。
+4. 実行が成功すると、APKがArtifactsに保存され、最新APKのGitHub Releaseも更新されます。
+
+バージョンタグ（例：`v1.0.0`）を作成してプッシュすると、そのタグに対応するGitHub ReleaseにもAPKが添付されます。
+
+**注意：** 生成されるAPKは、インストール・動作確認用のデバッグ署名版です。Google Playで公開するための正式なリリース署名版ではありません。
+
+## 画像の一括高解像度化
+
+- 一度に最大5枚まで画像を選択できます。
+- 画像は端末への負荷を抑えるため、1枚ずつ順番に処理します。
+- 拡大倍率は2倍・3倍・4倍から選択できます。
+- PNG・JPG・WebP形式で保存できます。
+- 各画像を個別にプレビューし、新しいタブで開くかダウンロードできます。
+- 端末のメモリ不足を避けるため、画像サイズや処理可能な解像度には上限があります。
+
+## 動作・プライバシーに関する注意
+
+- GIF変換エンジンは初回利用時にjsDelivrから読み込まれます。そのため、変換エンジンの読み込みにはインターネット接続が必要です。
+- 動画の変換処理は端末内で行われ、選択した動画がAevMotionのサーバーへ送信されることはありません。
+- 長い動画、高いFPS、大きな出力サイズは、メモリ使用量と処理時間が増加します。
+- スマートフォンでは、まず短い動画・15 FPS・幅480 px程度の設定から試すことをおすすめします。
+- 画面録画は、端末に保存済みの動画ファイルとして読み込みます。AevMotion自体に画面録画機能はありません。
+- ブラウザーやAndroid WebViewのメモリ上限は端末によって異なります。変換に失敗する場合は、動画の長さや出力サイズを小さくしてください。
+- 著作権および動画配信サービスの利用規約を守ってご利用ください。
+
+## 使用技術
+
+HTML / CSS / JavaScript / FFmpeg.wasm / Capacitor / GitHub Pages / GitHub Actions
