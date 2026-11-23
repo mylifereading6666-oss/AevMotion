@@ -102,3 +102,11 @@ ZIPを展開し、内容を確認してからAPKをインストールしてく�
 ---
 
 **AevMotion by Aev0rnJP**
+
+
+## 公式SNS
+
+- YouTube： [Aev0rnJP](https://www.youtube.com/@Aev0rnJP)
+- X： [@aevornjp](https://x.com/aevornjp)
+
+Android版ZIPに同梱する配布者・著作権情報、AevMotion本体ライセンス、利用規約にも上記の公式SNS名とURLを記載しています。
