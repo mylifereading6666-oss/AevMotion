@@ -16,6 +16,11 @@
 4. Open the Pages URL shown in the repository settings.
 
 ## Android APK
+
+[**Download the latest AevMotion APK**](https://github.com/mylifereading6666-oss/AevMotion/releases/latest/download/app-debug.apk)
+
+The download link above and the download button on the web app start downloading the APK directly from the latest GitHub Release. The first APK is published after the Android workflow is run once; later version-tag builds publish updated APKs to Releases.
+
 1. Open the **Actions** tab.
 2. Select **Build Android APK**.
 3. Choose **Run workflow** and wait for the build to finish.
