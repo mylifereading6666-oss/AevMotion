@@ -4,6 +4,10 @@ AevMotion Android版 インストールパッケージ
 - AevMotion.apk：AevMotionアプリ本体
 - 利用規約.txt：利用条件と注意事項
 - 使い方ガイド.txt：インストール方法と基本操作
+- 配布者・著作権情報.txt：配布元・権利者の表示
+- AevMotion-LICENSE.txt：AevMotion独自部分の利用許諾
+- THIRD-PARTY-LICENSES.txt：npm依存ライブラリのライセンス情報
+- FFmpeg-LGPL-2.1.txt / FFmpeg-GPL-2.0.txt：FFmpeg関連ライセンス本文の参照用コピー
 
 【インストール手順】
 1. ZIPファイルを端末にダウンロードします。
