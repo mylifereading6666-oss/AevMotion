@@ -39,19 +39,20 @@
 </div>
 </section>
 <section class="panel upscale-panel" aria-labelledby="upscaleTitle">
-<div class="section-head"><div><span class="step">05</span><h2 id="upscaleTitle">画像を高解像度化</h2></div><span class="muted">画像1枚ずつ処理</span></div>
-<p class="upscale-description">画像を1枚選び、ピクセル寸法を拡大して保存できます。画像は端末内で処理されます。</p>
-<label class="dropzone image-dropzone" id="imageDropzone" for="imageInput"><input id="imageInput" type="file" accept="image/png,image/jpeg,image/webp,image/gif,image/bmp"><span class="upload-icon">＋</span><strong>画像を1枚選択</strong><span>PNG・JPG・WebP・GIF など</span><small>複数画像の一括処理には対応していません</small></label>
-<div id="imageInfo" class="file-info hidden"><span class="file-symbol">▧</span><div class="file-meta"><strong id="imageName">—</strong><small id="imageDimensions">—</small></div><button id="removeImage" class="text-btn" type="button">削除</button></div>
+<div class="section-head"><div><span class="step">05</span><h2 id="upscaleTitle">画像を高解像度化</h2></div><span class="muted">最大5枚をまとめて処理</span></div>
+<p class="upscale-description">画像を複数選択して一括処理できます。端末の負荷を抑えるため、画像は1枚ずつ順番に処理します。</p>
+<label class="dropzone image-dropzone" id="imageDropzone" for="imageInput"><input id="imageInput" type="file" accept="image/png,image/jpeg,image/webp,image/gif,image/bmp" multiple><span class="upload-icon">＋</span><strong>画像を選択（最大5枚）</strong><span>PNG・JPG・WebP・GIF など</span><small>一度に最大5枚まで選択できます。ドラッグ＆ドロップにも対応。</small></label>
+<div id="imageQueueInfo" class="file-info hidden"><span class="file-symbol">▧</span><div class="file-meta"><strong id="imageQueueCount">0枚選択中</strong><small>選択した画像をまとめて処理します</small></div><button id="clearImages" class="text-btn" type="button">選択解除</button></div>
 <div id="upscaleControls" class="upscale-controls hidden">
 <div class="settings-grid">
 <label>拡大倍率<select id="upscaleFactor"><option value="2">2倍</option><option value="3">3倍</option><option value="4">4倍</option></select></label>
 <label>保存形式<select id="upscaleFormat"><option value="image/png">PNG（劣化なし）</option><option value="image/jpeg">JPG</option><option value="image/webp">WebP</option></select></label>
 </div>
-<div class="notice">これはブラウザーの高品質補間による拡大です。画像のピクセル数は増えますが、AIのように失われた細部を復元する機能ではありません。大きな画像では端末のメモリを多く使います。</div>
-<button id="upscaleBtn" class="primary-btn" type="button"><span>✦</span> この画像を高解像度化</button>
+<div class="notice">おすすめは一度に5枚までです。処理は順番に行い、端末のメモリ負荷を抑えます。高品質補間による拡大のため、ピクセル数は増えますがAIによる細部の復元ではありません。1枚あたり拡大後40メガピクセルまで対応します。</div>
+<button id="upscaleBtn" class="primary-btn" type="button"><span>✦</span> 選択した画像をまとめて高解像度化</button>
+<div id="upscaleProgress" class="progress-area hidden"><div class="progress-head"><span id="upscaleProgressText">準備中...</span><strong id="upscaleProgressPct">0%</strong></div><div class="progress-track"><div id="upscaleProgressBar"></div></div></div>
 <div id="upscaleError" class="error-box hidden" role="alert"></div>
-<div id="upscaleResult" class="result hidden"><div class="result-head"><strong>高解像度化が完了しました</strong><span id="upscaleResultMeta"></span></div><img id="upscalePreview" alt="高解像度化した画像のプレビュー"><a id="upscaleOpenNewTab" class="download-btn secondary-download" target="_blank" rel="noopener noreferrer">↗ 高解像度画像を新しいタブで開く</a><a id="upscaleDownload" class="download-btn" download="aevmotion-upscaled.png">↓ 画像を保存</a></div>
+<div id="upscaleResults" class="upscale-results"></div>
 </div></section>
 <footer><span>© Aev0rnJP · AevMotion</span><span>動画は外部サーバーへアップロードされません</span></footer>
 </main>
