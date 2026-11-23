@@ -26,8 +26,6 @@ GIFへの変換には **FFmpeg.wasm** を使用しています。動画の変換
 
 ## Android版（APK）
 
-<text-placeholder />
-
 [**AevMotion 最新版APKをダウンロード**](https://github.com/mylifereading6666-oss/AevMotion/releases/latest/download/app-debug.apk)
 
 Webサイト内のAPKダウンロードボタン、または上記リンクを押すと、最新のGitHub ReleaseからAPKを直接ダウンロードできます。最初のAPKは、Android用ワークフローを正常に1回実行して公開された後にダウンロード可能になります。
