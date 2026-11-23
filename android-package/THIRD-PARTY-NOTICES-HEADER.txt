@@ -1,24 +1,26 @@
 AevMotion - THIRD-PARTY SOFTWARE NOTICES
 
-This file is generated during the Android package build and includes license information
-for the npm production dependency tree detected by license-checker.
+This file is generated during the Android package build. It contains license information
+and, where available, license texts for the npm dependency tree detected by license-checker.
 
 Important:
 - Each component remains subject to its own copyright and license.
 - This notice does not relicense third-party components under AevMotion's terms.
-- The dynamically loaded FFmpeg WebAssembly core is listed separately below.
-- Android Gradle / AndroidX platform components may have additional notices; consult
-  the corresponding upstream package metadata and official license pages.
+- The app loads @ffmpeg/core at runtime from jsDelivr; that WebAssembly core is not
+  included as a binary in this Android ZIP package.
+- @ffmpeg/core package metadata for version 0.12.6 declares MIT. The compiled FFmpeg
+  code and any external libraries within that binary retain their respective upstream
+  licensing terms. The metadata label alone does not replace the underlying notices.
+- Upstream FFmpeg licensing information:
+  https://ffmpeg.org/legal.html
+  https://github.com/FFmpeg/FFmpeg/blob/master/LICENSE.md
+- FFmpeg.wasm project and source:
+  https://github.com/ffmpegwasm/ffmpeg.wasm
+- Android Gradle / AndroidX components are separate from the npm dependency report.
+  Their licenses are provided by their respective upstream projects. See:
+  https://developer.android.com/jetpack/androidx
+- The included license texts are notices/reference copies. Applicability depends on
+  the exact upstream component and build configuration.
 
-FFmpeg WebAssembly core used by the web application:
-- Package: @ffmpeg/core
-- Version loaded by the app: 0.12.6
-- Upstream project: https://github.com/ffmpegwasm/ffmpeg.wasm
-- FFmpeg project license overview: https://ffmpeg.org/legal.html
-- FFmpeg source and license files: https://github.com/FFmpeg/FFmpeg
-- The exact enabled codec/build configuration must be checked against the upstream
-  artifact before making a definitive statement about optional GPL components.
-- The FFmpeg license text is included separately as FFmpeg-LGPL-2.1.txt for reference.
-
-Generated dependency details follow.
+Generated npm dependency details follow.
 
