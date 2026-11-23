@@ -1,0 +1,24 @@
+AevMotion - THIRD-PARTY SOFTWARE NOTICES
+
+This file is generated during the Android package build and includes license information
+for the npm production dependency tree detected by license-checker.
+
+Important:
+- Each component remains subject to its own copyright and license.
+- This notice does not relicense third-party components under AevMotion's terms.
+- The dynamically loaded FFmpeg WebAssembly core is listed separately below.
+- Android Gradle / AndroidX platform components may have additional notices; consult
+  the corresponding upstream package metadata and official license pages.
+
+FFmpeg WebAssembly core used by the web application:
+- Package: @ffmpeg/core
+- Version loaded by the app: 0.12.6
+- Upstream project: https://github.com/ffmpegwasm/ffmpeg.wasm
+- FFmpeg project license overview: https://ffmpeg.org/legal.html
+- FFmpeg source and license files: https://github.com/FFmpeg/FFmpeg
+- The exact enabled codec/build configuration must be checked against the upstream
+  artifact before making a definitive statement about optional GPL components.
+- The FFmpeg license text is included separately as FFmpeg-LGPL-2.1.txt for reference.
+
+Generated dependency details follow.
+
