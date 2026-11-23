@@ -4,14 +4,17 @@
   "private": true,
   "description": "AevMotion - local video to GIF editor",
   "scripts": {
-    "build": "mkdir -p www && cp index.html style.css app.js www/",
+    "build": "vite build",
     "android:sync": "npm run build && cap sync android"
   },
   "dependencies": {
     "@capacitor/android": "^6.2.1",
-    "@capacitor/core": "^6.2.1"
+    "@capacitor/core": "^6.2.1",
+    "@ffmpeg/ffmpeg": "0.12.10",
+    "@ffmpeg/util": "0.12.2"
   },
   "devDependencies": {
-    "@capacitor/cli": "^6.2.1"
+    "@capacitor/cli": "^6.2.1",
+    "vite": "^5.4.14"
   }
 }
