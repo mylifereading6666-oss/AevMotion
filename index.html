@@ -2,7 +2,7 @@
 <html lang="ja">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#090d1b"><meta name="description" content="AevMotion - 動画の好きな部分をGIFに変換するツール">
+<meta name="theme-color" content="#090d1b"><meta name="description" content="AevMotion - 動画をGIFに変換し、画像1枚を高解像度化するツール">
 <title>AevMotion | Video to GIF</title>
 <link rel="stylesheet" href="style.css">
 </head>
@@ -38,6 +38,21 @@
 <div id="result" class="result hidden"><div class="result-head"><strong>GIFが完成しました</strong><span id="resultMeta"></span></div><img id="gifPreview" alt="作成したGIFのプレビュー"><a id="downloadBtn" class="download-btn" download="aevmotion.gif">↓ GIFを保存</a></div>
 </div>
 </section>
+<section class="panel upscale-panel" aria-labelledby="upscaleTitle">
+<div class="section-head"><div><span class="step">05</span><h2 id="upscaleTitle">画像を高解像度化</h2></div><span class="muted">画像1枚ずつ処理</span></div>
+<p class="upscale-description">画像を1枚選び、ピクセル寸法を拡大して保存できます。画像は端末内で処理されます。</p>
+<label class="dropzone image-dropzone" id="imageDropzone" for="imageInput"><input id="imageInput" type="file" accept="image/png,image/jpeg,image/webp,image/gif,image/bmp"><span class="upload-icon">＋</span><strong>画像を1枚選択</strong><span>PNG・JPG・WebP・GIF など</span><small>複数画像の一括処理には対応していません</small></label>
+<div id="imageInfo" class="file-info hidden"><span class="file-symbol">▧</span><div class="file-meta"><strong id="imageName">—</strong><small id="imageDimensions">—</small></div><button id="removeImage" class="text-btn" type="button">削除</button></div>
+<div id="upscaleControls" class="upscale-controls hidden">
+<div class="settings-grid">
+<label>拡大倍率<select id="upscaleFactor"><option value="2">2倍</option><option value="3">3倍</option><option value="4">4倍</option></select></label>
+<label>保存形式<select id="upscaleFormat"><option value="image/png">PNG（劣化なし）</option><option value="image/jpeg">JPG</option><option value="image/webp">WebP</option></select></label>
+</div>
+<div class="notice">これはブラウザーの高品質補間による拡大です。画像のピクセル数は増えますが、AIのように失われた細部を復元する機能ではありません。大きな画像では端末のメモリを多く使います。</div>
+<button id="upscaleBtn" class="primary-btn" type="button"><span>✦</span> この画像を高解像度化</button>
+<div id="upscaleError" class="error-box hidden" role="alert"></div>
+<div id="upscaleResult" class="result hidden"><div class="result-head"><strong>高解像度化が完了しました</strong><span id="upscaleResultMeta"></span></div><img id="upscalePreview" alt="高解像度化した画像のプレビュー"><a id="upscaleDownload" class="download-btn" download="aevmotion-upscaled.png">↓ 画像を保存</a></div>
+</div></section>
 <footer><span>© Aev0rnJP · AevMotion</span><span>動画は外部サーバーへアップロードされません</span></footer>
 </main>
 <script type="module" src="app.js"></script>
