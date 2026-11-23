@@ -32,13 +32,19 @@ jobs:
         run: cd android && chmod +x gradlew && ./gradlew assembleDebug
       - name: Rename APK for distribution
         run: cp android/app/build/outputs/apk/debug/app-debug.apk AevMotion.apk
-      - name: Create installation ZIP package
+      - name: Create installation ZIP package and collect licenses
         run: |
           mkdir -p package
           cp AevMotion.apk package/AevMotion.apk
           cp android-package/利用規約.txt package/利用規約.txt
           cp android-package/使い方ガイド.txt package/使い方ガイド.txt
           cp android-package/README.txt package/README.txt
+          cp android-package/配布者・著作権情報.txt package/配布者・著作権情報.txt
+          cp android-package/AevMotion-LICENSE.txt package/AevMotion-LICENSE.txt
+          cat android-package/THIRD-PARTY-NOTICES-HEADER.txt > package/THIRD-PARTY-LICENSES.txt
+          npx --yes license-checker@25.0.1 --production --includeLicenseText >> package/THIRD-PARTY-LICENSES.txt
+          curl -fsSL https://raw.githubusercontent.com/FFmpeg/FFmpeg/master/COPYING.LGPLv2.1 -o package/FFmpeg-LGPL-2.1.txt
+          curl -fsSL https://raw.githubusercontent.com/FFmpeg/FFmpeg/master/COPYING.GPLv2 -o package/FFmpeg-GPL-2.0.txt
           cd package
           zip -9 ../AevMotion-Android-Install.zip ./*
       - name: Upload Android installation package
