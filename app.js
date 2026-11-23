@@ -60,7 +60,7 @@ $('upscaleBtn').onclick=()=>{
       if(!blob){$('upscaleError').textContent='画像を書き出せませんでした。形式を変更してお試しください。';$('upscaleError').classList.remove('hidden');return}
       upscaledUrl=URL.createObjectURL(blob);$('upscalePreview').src=upscaledUrl;
       const ext=mime==='image/jpeg'?'jpg':mime==='image/webp'?'webp':'png';
-      $('upscaleDownload').href=upscaledUrl;$('upscaleDownload').download='aevmotion-upscaled-'+w+'x'+h+'.'+ext;
+      $('upscaleOpenNewTab').href=upscaledUrl;$('upscaleDownload').href=upscaledUrl;$('upscaleDownload').download='aevmotion-upscaled-'+w+'x'+h+'.'+ext;
       $('upscaleResultMeta').textContent=w+' × '+h+' px · '+size(blob.size);$('upscaleResult').classList.remove('hidden');
     },mime,mime==='image/jpeg'?0.92:undefined);
   }catch(err){$('upscaleError').textContent='高解像度化に失敗しました。画像サイズを小さくしてお試しください。';$('upscaleError').classList.remove('hidden')}
