@@ -1,0 +1,21 @@
+AevMotion 配布者・著作権情報
+
+アプリ名：AevMotion
+アプリID：jp.aev0rnjp.aevmotion
+開発・配布名義：Aev0rnJP
+公式配布元：https://github.com/mylifereading6666-oss/AevMotion
+公式サイト：https://mylifereading6666-oss.github.io/AevMotion/
+
+■ AevMotion本体について
+AevMotionの独自部分（画面デザイン、アプリ構成、説明文、独自コード等）の著作権は、各権利者に帰属します。Aev0rnJPが作成・管理する部分についてはAev0rnJPに帰属します。
+この配布物はAevMotionを利用するためのものであり、第三者ライブラリの権利やライセンスをAev0rnJPが所有するものではありません。
+AevMotion独自部分に別途オープンソースライセンスが明示されていない場合、第三者による再配布・改変・商用利用の許諾を意味しません。許諾が必要な場合は公式配布元から権利者へお問い合わせください。
+
+■ 第三者ソフトウェア
+本アプリはFFmpeg、FFmpeg.wasm、Capacitorなどの第三者ソフトウェアを利用します。各ソフトウェアはそれぞれの権利者が定めるライセンスに従います。ライセンス本文と著作権表示は同梱の THIRD-PARTY-LICENSES.txt、FFmpeg-LGPL-2.1.txt、および各公式配布元を確認してください。
+
+■ 配布者
+本ZIPの配布元はAev0rnJPのAevMotion公式GitHubリポジトリです。第三者が再配布したファイルについて、公式配布物であることや改変されていないことを保証しません。
+
+■ 注意
+この文書は権利者・配布元を示すための情報です。個別の法律相談ではありません。
