@@ -1,0 +1,8 @@
+{
+  "appId": "jp.aev0rnjp.aevmotion",
+  "appName": "AevMotion",
+  "webDir": "www",
+  "server": {
+    "androidScheme": "https"
+  }
+}
