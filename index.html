@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#090d1b"><meta name="description" content="AevMotion - 動画の好きな部分をGIFに変換するツール">
+<title>AevMotion | Video to GIF</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="topbar"><a class="brand" href="#"><span class="brand-mark">A</span><span>AevMotion<small>VIDEO TO GIF STUDIO</small></span></a><div class="top-actions"><span class="local-pill"><i></i> LOCAL PROCESSING</span><button id="langBtn" class="icon-btn" aria-label="Change language">JP / EN</button></div></header>
+<main class="shell">
+<section class="hero"><div class="eyebrow">CREATIVE TOOLKIT <span>01 / GIF STUDIO</span></div><h1>動画の一瞬を、<em>GIF</em>に。</h1><p class="lead">必要な部分だけを切り出して、GIFアニメーションに変換。動画ファイルは端末内で処理されます。</p></section>
+<section class="workspace">
+<div class="panel import-panel"><div class="section-head"><div><span class="step">01</span><h2>動画を読み込む</h2></div><span class="muted">MP4 · MOV · WEBM など</span></div>
+<label class="dropzone" id="dropzone" for="videoInput"><input id="videoInput" type="file" accept="video/*"><span class="upload-icon">↑</span><strong>動画ファイルを選択</strong><span>ここにファイルをドロップすることもできます</span><small>スマホの動画・画面録画に対応（端末のファイル選択から読み込み）</small></label>
+<div id="fileInfo" class="file-info hidden"><span class="file-symbol">▶</span><div class="file-meta"><strong id="fileName">—</strong><small id="fileMeta">—</small></div><button id="removeVideo" class="text-btn">削除</button></div>
+</div>
+<div class="panel editor-panel"><div class="section-head"><div><span class="step">02</span><h2>変換する範囲</h2></div><span class="muted" id="durationLabel">動画を読み込んでください</span></div>
+<div class="preview-wrap"><video id="preview" playsinline controls></video><div id="previewPlaceholder" class="preview-placeholder"><span>▶</span><b>動画プレビュー</b><small>読み込み後にここへ表示されます</small></div></div>
+<div class="range-labels"><label>開始 <strong id="startLabel">0.0s</strong></label><label>終了 <strong id="endLabel">0.0s</strong></label></div>
+<div class="range-control"><input id="startRange" type="range" min="0" max="0" step="0.1" value="0" disabled><input id="endRange" type="range" min="0" max="0" step="0.1" value="0" disabled></div>
+<div class="time-fields"><label>開始時間（秒）<input id="startNumber" type="number" min="0" step="0.1" value="0" disabled></label><label>終了時間（秒）<input id="endNumber" type="number" min="0" step="0.1" value="0" disabled></label></div>
+<div class="section-head settings-title"><div><span class="step">03</span><h2>GIF設定</h2></div><span class="muted">高画質と軽さのバランス</span></div>
+<div class="settings-grid">
+<label>フレームレート <div class="control-inline"><input id="fps" type="range" min="5" max="30" value="15"><output id="fpsOut">15 FPS</output></div></label>
+<label>GIF幅 <select id="width"><option value="320">320 px（軽量）</option><option value="480" selected>480 px（標準）</option><option value="640">640 px（高精細）</option><option value="800">800 px（大きめ）</option><option value="source">元の幅を維持</option></select></label>
+<label>再生速度 <div class="control-inline"><input id="speed" type="range" min="0.5" max="2" step="0.1" value="1"><output id="speedOut">1.0x</output></div></label>
+<label>色数・画質 <select id="colors"><option value="64">64色（軽量）</option><option value="128">128色</option><option value="192" selected>192色（標準）</option><option value="256">256色（高画質）</option></select></label>
+</div>
+<label class="check-row"><input id="loop" type="checkbox" checked><span>ループ再生（繰り返し）</span></label>
+<div class="notice">GIFは動画よりファイルサイズが大きくなる場合があります。長い範囲・高解像度・高FPSでは処理に時間がかかります。</div>
+</div>
+<div class="panel export-panel"><div class="section-head"><div><span class="step">04</span><h2>GIFに変換</h2></div><span class="muted">端末内で処理</span></div>
+<div class="engine-status"><span class="status-dot"></span><span id="engineText">変換エンジンは必要になったときに読み込みます</span></div>
+<button id="convertBtn" class="primary-btn" disabled><span>✦</span> GIFを作成する</button>
+<div id="progressArea" class="progress-area hidden"><div class="progress-head"><span id="progressText">準備中...</span><strong id="progressPct">0%</strong></div><div class="progress-track"><div id="progressBar"></div></div><button id="cancelBtn" class="text-btn">キャンセル</button></div>
+<div id="errorBox" class="error-box hidden" role="alert"></div>
+<div id="result" class="result hidden"><div class="result-head"><strong>GIFが完成しました</strong><span id="resultMeta"></span></div><img id="gifPreview" alt="作成したGIFのプレビュー"><a id="downloadBtn" class="download-btn" download="aevmotion.gif">↓ GIFを保存</a></div>
+</div>
+</section>
+<footer><span>© Aev0rnJP · AevMotion</span><span>動画は外部サーバーへアップロードされません</span></footer>
+</main>
+<script type="module" src="app.js"></script>
+</body></html>
