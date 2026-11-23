@@ -32,11 +32,20 @@ jobs:
         run: cd android && chmod +x gradlew && ./gradlew assembleDebug
       - name: Rename APK for distribution
         run: cp android/app/build/outputs/apk/debug/app-debug.apk AevMotion.apk
-      - name: Upload APK artifact
+      - name: Create installation ZIP package
+        run: |
+          mkdir -p package
+          cp AevMotion.apk package/AevMotion.apk
+          cp android-package/利用規約.txt package/利用規約.txt
+          cp android-package/使い方ガイド.txt package/使い方ガイド.txt
+          cp android-package/README.txt package/README.txt
+          cd package
+          zip -9 ../AevMotion-Android-Install.zip ./*
+      - name: Upload Android installation package
         uses: actions/upload-artifact@v4
         with:
-          name: AevMotion-Android-APK
-          path: AevMotion.apk
+          name: AevMotion-Android-Install
+          path: AevMotion-Android-Install.zip
           if-no-files-found: error
       - name: Publish latest APK for direct download
         if: github.event_name == 'workflow_dispatch' || (github.event_name == 'push' && github.ref == 'refs/heads/main')
@@ -45,12 +54,12 @@ jobs:
           tag_name: latest
           name: AevMotion Latest APK
           target_commitish: ${{ github.sha }}
-          files: AevMotion.apk
+          files: AevMotion-Android-Install.zip
           overwrite_files: true
           make_latest: true
       - name: Attach APK to GitHub Release
         if: startsWith(github.ref, 'refs/tags/')
         uses: softprops/action-gh-release@v2
         with:
-          files: AevMotion.apk
+          files: AevMotion-Android-Install.zip
           generate_release_notes: true
