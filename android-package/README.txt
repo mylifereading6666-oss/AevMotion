@@ -9,6 +9,13 @@ AevMotion Android版 インストールパッケージ
 - THIRD-PARTY-LICENSES.txt：npm依存ライブラリのライセンス情報
 - FFmpeg-LGPL-2.1.txt / FFmpeg-GPL-2.0.txt：FFmpeg関連ライセンス本文の参照用コピー
 
+【公式SNS】
+YouTube：Aev0rnJP
+https://www.youtube.com/@Aev0rnJP
+
+X：@aevornjp
+https://x.com/aevornjp
+
 【インストール手順】
 1. ZIPファイルを端末にダウンロードします。
 2. Androidの「Files」などのファイル管理アプリでZIPを開きます。
