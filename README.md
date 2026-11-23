@@ -87,7 +87,7 @@ A. はい。スマートフォンのブラウザーから利用できます。�
 
 ## Android版
 
-Android版のインストールパッケージ（ZIP）には、AevMotion.apk・利用規約・使い方ガイドが含まれます。
+Android版のインストールパッケージ（ZIP）には、AevMotion.apk・利用規約・使い方ガイド・配布者／著作権情報・AevMotion本体ライセンス・第三者ライブラリのライセンス情報とライセンス本文が含まれます。
 
 [**Android版インストールパッケージをダウンロード（ZIP）**](https://github.com/mylifereading6666-oss/AevMotion/releases/latest/download/AevMotion-Android-Install.zip)
 
