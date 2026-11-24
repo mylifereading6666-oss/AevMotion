@@ -6,3 +6,6 @@
 .upscale-results{display:grid;gap:14px;margin-top:16px}.upscale-result-card{min-width:0;padding:14px;border:1px solid #3c806e;background:#143b3433;border-radius:13px}.upscale-result-card .result-head{align-items:flex-start}.upscale-result-card .result-head strong{overflow-wrap:anywhere}.upscale-result-card img{display:block;max-width:100%;max-height:300px;margin:0 auto 12px;border-radius:8px;background:#050812}.upscale-result-card .download-btn+.download-btn{margin-top:8px}.upscale-controls .primary-btn:disabled{opacity:.4;cursor:not-allowed}
 
 .apk-download-btn{display:inline-flex;align-items:center;justify-content:center;gap:7px;padding:10px 14px;border:1px solid #6bdcf188;border-radius:10px;background:linear-gradient(110deg,#61d8f2,#9b82ff);color:#07101e;text-decoration:none;font-size:11px;font-weight:800;white-space:nowrap;box-shadow:0 5px 20px #6b8af333}.apk-download-btn:hover{filter:brightness(1.1);transform:translateY(-1px)}@media(max-width:600px){.top-actions{gap:8px}.apk-download-btn{padding:9px 10px;font-size:10px}}
+
+/* PWA install action */
+.apk-download-btn{font-family:inherit;cursor:pointer}.apk-download-btn[hidden]{display:none}
