@@ -2,12 +2,19 @@
 <html lang="ja">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#090d1b"><meta name="description" content="AevMotion - 動画をGIFに変換し、画像1枚を高解像度化するツール">
+<meta name="theme-color" content="#090d1b">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="AevMotion">
+<link rel="manifest" href="./manifest.webmanifest">
+<link rel="icon" href="./icons/aevmotion-192.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="./icons/aevmotion-192.svg"><meta name="description" content="AevMotion - 動画をGIFに変換し、画像1枚を高解像度化するツール">
 <title>AevMotion | Video to GIF</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<header class="topbar"><a class="brand" href="#"><span class="brand-mark">A</span><span>AevMotion<small>VIDEO TO GIF STUDIO</small></span></a><div class="top-actions"><span class="local-pill"><i></i> LOCAL PROCESSING</span><a class="apk-download-btn" href="https://github.com/mylifereading6666-oss/AevMotion/releases/latest/download/AevMotion-Android-Install.zip" download="AevMotion.apk">↓ Android版ZIPをダウンロード</a></div></header>
+<header class="topbar"><a class="brand" href="#"><span class="brand-mark">A</span><span>AevMotion<small>VIDEO TO GIF STUDIO</small></span></a><div class="top-actions"><span class="local-pill"><i></i> LOCAL PROCESSING</span><button id="installAppBtn" class="apk-download-btn" type="button" hidden>＋ アプリとしてインストール</button><a class="apk-download-btn" href="https://github.com/mylifereading6666-oss/AevMotion/releases/latest/download/AevMotion-Android-Install.zip" download="AevMotion.apk">↓ Android版ZIPをダウンロード</a></div></header>
 <main class="shell">
 <section class="hero"><div class="eyebrow">CREATIVE TOOLKIT <span>01 / GIF STUDIO</span></div><h1>動画の一瞬を、<em>GIF</em>に。</h1><p class="lead">必要な部分だけを切り出して、GIFアニメーションに変換。動画ファイルは端末内で処理されます。</p></section>
 <section class="workspace">
@@ -56,5 +63,31 @@
 </div></section>
 <footer><span>© Aev0rnJP · AevMotion</span><span>動画は外部サーバーへアップロードされません</span></footer>
 </main>
+<script>
+(() => {
+  const installButton = document.getElementById('installAppBtn');
+  let installPrompt = null;
+  window.addEventListener('beforeinstallprompt', event => {
+    event.preventDefault();
+    installPrompt = event;
+    if (installButton) installButton.hidden = false;
+  });
+  installButton?.addEventListener('click', async () => {
+    if (!installPrompt) return;
+    installPrompt.prompt();
+    await installPrompt.userChoice;
+    installPrompt = null;
+    installButton.hidden = true;
+  });
+  window.addEventListener('appinstalled', () => {
+    if (installButton) installButton.hidden = true;
+  });
+  if ('serviceWorker' in navigator && (location.protocol === 'https:' || location.hostname === 'localhost')) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('./sw.js').catch(error => console.error('AevMotion PWA registration failed:', error));
+    });
+  }
+})();
+</script>
 <script type="module" src="app.js"></script>
 </body></html>
